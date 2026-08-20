@@ -6,7 +6,7 @@ body {
     font-family: "Comic Sans MS", "Courier New", sans-serif;
     margin: 0;
     padding: 20px;
-    cursor: url("https://cur.cursors-4u.net/food/foo-1/foo8.cur"), auto; /* Optional pizza cursor fallback */
+    cursor: url("https://cur.cursors-4u.net/food/foo-1/foo8.cur"), auto;
 }
 
 h1 {
@@ -79,7 +79,6 @@ img.reverse {
     max-width: 100%;
 }
 
-/* Outer Table / Frame Structure */
 .container {
     max-width: 90%;
     margin: 0 auto;
@@ -155,18 +154,16 @@ ul li b {
     max-height: 4rem;
 }
 
-/* Container Box */
 ol.what-to-do {
     background-color: #f00;
     border: 4px dashed #0f0;
     padding: 20px 20px 20px 45px;
-    list-style-type: decimal-leading-zero; /* Displays 01, 02, 03... */
+    list-style-type: decimal-leading-zero;
     max-width: 550px;
     margin: 20px auto;
     box-shadow: 8px 8px 0 #00ffff;
 }
 
-/* Individual Items */
 ol.what-to-do li {
     font-family: "Comic Sans MS", "Courier New", sans-serif;
     font-size: 1.3rem;
@@ -187,7 +184,7 @@ ol.what-to-do li img {
     filter: drop-shadow(2px 2px 0px #000000);
 }
 
-/* Retro RSVP Form */
+
 .rsvp-form {
     background-color: #000080;
     border: 3px groove #c0c0c0;
@@ -222,7 +219,6 @@ input, select, button {
     border-style: inset;
 }
 
-/* Visitor Counter Badge */
 .counter {
     border: 2px inset #ffffff;
     background-color: #000000;
