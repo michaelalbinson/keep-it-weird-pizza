@@ -8,6 +8,42 @@
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <meta charset="utf-8" />
     <link rel="stylesheet" href="css/style.css" />
+    <script>
+
+        function sendRSVPEmail(event) {
+            event.preventDefault(); // Prevent standard page reload
+
+            // Target Organizer Email
+            const organizerEmail = "michael@albinson.ca";
+
+            // Extract Form Values
+            const name = document.getElementById("name") ? document.getElementById("name").value : "Anonymous";
+            const pizza = document.getElementById("pizzatype") ? document.getElementById("pizzatype").value : "Not specified";
+            const iceCream = document.getElementById("icecream") ? document.getElementById("icecream").value : "Not specified";
+
+            // Checkbox & Plus-One Details
+            const hasPlusOne = document.getElementById("plus-one") ? document.getElementById("plus-one").checked : false;
+            const plusOneStatus = hasPlusOne
+                ? "YES"
+                : "NO";
+
+            // Format Email Subject & Body
+            const subject = encodeURIComponent(`RSVP: Pizza & Ice Cream Social - ${name}`);
+            const body = encodeURIComponent(
+                `*** CLASS PIZZA & ICE CREAM SOCIAL MANDATORY FUN RSVP ***\n\n` +
+                `Name: ${name}\n` +
+                `Pizza: ${pizza}\n` +
+                `Ice Cream: ${iceCream}\n` +
+                `Bringing Accomplice (+1): ${plusOneStatus}\n\n` +
+                `----------------------------------------\n` +
+                `You can also just text me, but I'm not your mom` +
+                `i 🍕 u`
+            );
+
+            // Launch Email App
+            window.location.href = `mailto:${organizerEmail}?subject=${subject}&body=${body}`;
+        }
+    </script>
 </head>
 <body>
 <main>
@@ -47,7 +83,7 @@
                 <img src="assets/dance.gif" alt="dance">
             </div>
 
-            <p><img src="assets/mega.gif" class="inline reverse" alt="megaphone"> attention class: MICHAEL is turning 30 (plus one week), so come celebrate!</p>
+            <p><img src="assets/mega.gif" class="inline reverse" alt="megaphone"> attention class: MICHAEL (<img src="assets/smol.jpg" alt="smol michael" class="inline">) is turning 30 (plus one week), so come celebrate!</p>
 
             <h3>EVENT DETAILS:</h3>
             <ul>
@@ -58,26 +94,24 @@
 
             <h3>WHAT WE'RE GONNA DO:</h3>
             <ol class="what-to-do">
-                <li>make some pizza <img src="assets/pizza-guy.gif" alt="pizza guy"></li>
-                <li>eat some pizza <img src="assets/pizza-dance.gif" alt="pizza-dance"></li>
-                <li>eat some ice cream <img src="assets/ice-cream-eat.gif" alt="eat ice cream"></li>
+                <li>make some pizza <img src="assets/pizza-dance.gif" alt="pizza guy"></li>
+                <li>eat some pizza <img src="assets/eat-pizza.gif" alt="pizza-dance"></li>
+                <li>eat some ice cream <img src="assets/ice-cream-eat-2.gif" alt="eat ice cream"></li>
                 <li>watch a movie <img src="assets/movie.gif" alt="movie"></li>
             </ol>
 
-            <p>it really is that simple folks</p>
-
             <div class="rsvp-form">
                 <h3 style="color: #00ffff; margin-top: 0;">RSVP HERE (or else i get to eat ur pizza)</h3>
-                <form onsubmit="alert('RSVP SUBMITTED! SEE YOU THERE!'); return false;">
-                    <label for="name">Your Name / Alias:</label>
-                    <input type="text" id="name" required placeholder="xX_PizzaLover_Xx">
+                <form onsubmit="sendRSVPEmail(event)">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" required placeholder="xX_PizzaLover_420_Xx">
 
                     <label for="pizzatype">Preferred Pizza Alignment:</label>
                     <select id="pizzatype">
-                        <option>Pepperoni (Classic)</option>
-                        <option>Cheese (Purist)</option>
-                        <option>Veggie (Health Conscious)</option>
-                        <option>Pineapple (Controversial Choice)</option>
+                        <option>Cheese</option>
+                        <option>Meat</option>
+                        <option>Veggie</option>
+                        <option>Vegan (good 2 know)</option>
                     </select>
 
                     <label for="icecream">Ice Cream Loyalty:</label>
@@ -85,8 +119,12 @@
                         <option>Vanilla</option>
                         <option>Chocolate</option>
                         <option>Mint Chip</option>
-                        <option>Lactose Intolerant (Brave Choice)</option>
+                        <option>Lactose-free (i gotchu)</option>
                     </select>
+
+                    <label for="plus-one">I am bringing an accomplice / guest:</label>
+                    <input type="checkbox" id="plus-one">
+                    <br/>
 
                     <button type="submit" class="btn-submit">CLICK HERE TO CONFIRM RSVP</button>
                 </form>
